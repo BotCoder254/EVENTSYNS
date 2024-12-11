@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <h1><%= title %></h1>
+            <p class="lead"><%= message %></p>
+            <% if (error && Object.keys(error).length > 0) { %>
+                <div class="alert alert-danger">
+                    <pre><%= JSON.stringify(error, null, 2) %></pre>
+                </div>
+            <% } %>
+            <a href="/" class="btn btn-primary">Return Home</a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

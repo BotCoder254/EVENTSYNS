@@ -1,0 +1,195 @@
+<div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
+        <!-- Profile Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-xl">
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                <div class="relative group">
+                    <div class="w-32 h-32 rounded-full overflow-hidden ring-4 ring-white/30 group-hover:ring-white/50 transition-all duration-300">
+                        <img src="<%= user.profilePicture || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || user.username)}&background=3b82f6&color=fff` %>" 
+                             alt="<%= user.name || user.username %>" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 right-0">
+                        <div class="w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-3xl font-bold"><%= user.name || user.username %></h1>
+                    <p class="text-blue-100 mt-2">
+                        <i class="fas fa-envelope mr-2"></i><%= user.email %>
+                    </p>
+                    <div class="flex items-center justify-center md:justify-start space-x-4 mt-4"> 
+                        <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm"> 
+                            <i class="fas fa-calendar-check mr-2"></i><%= eventsAttending.length %> Events Attending
+                        </span>
+                        <span class="bg-white/20 px-4 py-2 rounded-full text-sm backdrop-blur-sm"> 
+                            <i class="fas fa-star mr-2"></i><%= eventsCreated.length %> Events Created
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Form -->
+        <div class="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-2xl font-bold mb-6 text-gray-900">Edit Profile</h2>
+            <form action="/users/profile?_method=PUT" method="POST" enctype="multipart/form-data" class="space-y-6">
+                <!-- Name Input -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               value="<%= user.name || '' %>" 
+                               required 
+                               class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                    </div>
+                </div>
+
+                <!-- Profile Picture Input -->
+                <div>
+                    <label for="profilePicture" class="block text-sm font-medium text-gray-700 mb-2">Profile Picture</label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-500 transition-all duration-300">
+                        <div class="space-y-1 text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div class="flex text-sm text-gray-600">
+                                <label for="profilePicture" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                                    <span>Upload a file</span>
+                                    <input id="profilePicture" name="profilePicture" type="file" accept="image/*" class="sr-only">
+                                </label>
+                                <p class="pl-1">or drag and drop</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <button type="submit" 
+                            class="group relative px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <i class="fas fa-save text-blue-500 group-hover:text-blue-400 transition-all duration-300"></i>
+                        </span>
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- User Stats Section -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h3 class="text-xl font-semibold mb-4">Activity Overview</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="text-lg font-medium text-blue-800">Events Created</h4>
+                    <p class="text-3xl font-bold text-blue-600"><%= eventsCreated.length %></p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="text-lg font-medium text-green-800">Events Attending</h4>
+                    <p class="text-3xl font-bold text-green-600"><%= eventsAttending.length %></p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg">
+                    <h4 class="text-lg font-medium text-purple-800">Notifications</h4>
+                    <p class="text-3xl font-bold text-purple-600"><%= notifications.length %></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Past Events Section -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-xl font-semibold mb-4">Past Events</h3>
+            <% if (pastEvents && pastEvents.length > 0) { %>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <% pastEvents.forEach(event => { %>
+                        <div class="border rounded-lg p-4 opacity-75">
+                            <img src="<%= event.image || '/images/default-event.jpg' %>" alt="<%= event.title %>" class="w-full h-32 object-cover rounded-lg mb-3 filter grayscale">
+                            <h4 class="font-semibold text-lg mb-2"><%= event.title %></h4>
+                            <p class="text-gray-600 mb-2"><i class="far fa-calendar-alt mr-2"></i><%= new Date(event.date).toLocaleDateString() %></p>
+                            <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i><%= event.location %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p class="text-gray-600">No past events</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // File Upload Preview
+    const fileInput = document.getElementById('profilePicture');
+    const previewContainer = document.querySelector('.w-32.h-32');
+    
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = previewContainer.querySelector('img');
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Drag and Drop
+    const dropZone = document.querySelector('.border-dashed');
+    
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, highlight, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, unhighlight, false);
+    });
+
+    function highlight(e) {
+        dropZone.classList.add('border-blue-500', 'bg-blue-50');
+    }
+
+    function unhighlight(e) {
+        dropZone.classList.remove('border-blue-500', 'bg-blue-50');
+    }
+
+    dropZone.addEventListener('drop', handleDrop, false);
+
+    function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const file = dt.files[0];
+        fileInput.files = dt.files;
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = previewContainer.querySelector('img');
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

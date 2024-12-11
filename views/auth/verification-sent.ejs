@@ -1,0 +1,89 @@
+<div class="min-h-screen flex">
+    <!-- Left Section - Image -->
+    <div class="hidden lg:block lg:w-1/2 relative">
+        <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&q=80" 
+             alt="Event Background" 
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-12">
+            <lottie-player
+                src="https://lottie.host/e5a1f63e-4f3d-4613-9f4c-c4f0307b9507/e9YcQUgvE4.json"
+                background="transparent"
+                speed="1"
+                style="width: 200px; height: 200px;"
+                loop
+                autoplay>
+            </lottie-player>
+            <h2 class="text-4xl font-bold mb-6">Almost There!</h2>
+            <p class="text-xl text-center max-w-md">We've sent you a verification email to confirm your account.</p>
+        </div>
+    </div>
+
+    <!-- Right Section - Verification Message -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center bg-white p-8">
+        <div class="max-w-md w-full">
+            <div class="text-center">
+                <div class="mb-8">
+                    <lottie-player
+                        src="https://lottie.host/fc1d8ea6-1e1c-4647-a7fc-f52571ed8cd9/iwuWcgYZAi.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 120px; height: 120px; margin: 0 auto;"
+                        loop
+                        autoplay>
+                    </lottie-player>
+                </div>
+                
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Check Your Email</h1>
+                <p class="text-gray-600 mb-8">
+                    We've sent a verification link to your email address. Please check your inbox and click on the verification link to complete your registration.
+                </p>
+
+                <!-- Email Tips -->
+                <div class="bg-blue-50 rounded-xl p-6 mb-8">
+                    <h3 class="text-sm font-semibold text-blue-900 mb-4">Can't find the email?</h3>
+                    <ul class="space-y-3 text-left">
+                        <li class="flex items-start text-sm text-blue-800">
+                            <svg class="h-5 w-5 text-blue-500 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Check your spam or junk folder
+                        </li>
+                        <li class="flex items-start text-sm text-blue-800">
+                            <svg class="h-5 w-5 text-blue-500 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Add noreply@eventsys.com to your contacts
+                        </li>
+                        <li class="flex items-start text-sm text-blue-800">
+                            <svg class="h-5 w-5 text-blue-500 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Allow up to 5 minutes for delivery
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-4">
+                    <a href="/" 
+                       class="block w-full px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Return to Home
+                    </a>
+                    <button type="button"
+                            class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Resend Verification Email
+                    </button>
+                </div>
+
+                <!-- Support Link -->
+                <p class="mt-8 text-sm text-gray-600">
+                    Need help? 
+                    <a href="/contact" class="font-medium text-blue-600 hover:text-blue-500">
+                        Contact Support
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

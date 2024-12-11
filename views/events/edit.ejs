@@ -1,0 +1,332 @@
+<!-- Edit Event Page -->
+<div class="min-h-screen flex">
+    <!-- Left Section - Image -->
+    <div class="hidden lg:block lg:w-1/3 relative">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80" 
+             alt="Event Creation Background" 
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-12">
+            <lottie-player
+                src="https://lottie.host/2a274be5-8ab4-47b4-b501-0e34c2cd4142/GQNwVDrHhk.json"
+                background="transparent"
+                speed="1"
+                style="width: 200px; height: 200px;"
+                loop
+                autoplay>
+            </lottie-player>
+            <h2 class="text-4xl font-bold mb-6">Edit Your Event</h2>
+            <p class="text-xl text-center max-w-md">Update your event details with our easy-to-use tools.</p>
+        </div>
+    </div>
+
+    <!-- Right Section - Form -->
+    <div class="w-full lg:w-2/3 bg-gray-50">
+        <div class="max-w-3xl mx-auto p-8">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <!-- Progress Bar -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-3xl font-bold text-gray-900">Edit Event</h2>
+                        <span class="text-sm font-medium text-gray-500" id="stepIndicator">Step 1 of 3</span>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden h-2 flex rounded bg-gray-200">
+                            <div class="progress-bar transition-all duration-500 h-2 rounded bg-gradient-to-r from-blue-600 to-purple-600" style="width: 33%"></div>
+                        </div>
+                        <div class="absolute top-2 w-full flex justify-between">
+                            <div class="step-indicator active">
+                                <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
+                                <span class="text-xs font-medium text-gray-500 mt-1">Basics</span>
+                            </div>
+                            <div class="step-indicator">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 text-sm font-bold">2</div>
+                                <span class="text-xs font-medium text-gray-500 mt-1">Details</span>
+                            </div>
+                            <div class="step-indicator">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 text-sm font-bold">3</div>
+                                <span class="text-xs font-medium text-gray-500 mt-1">Media</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="/events/<%= event._id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="editEventForm" class="space-y-6">
+                    <!-- Step 1: Basic Information -->
+                    <div class="step" data-step="1">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Event Title</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-heading text-gray-400"></i>
+                                    </div>
+                                    <input type="text" 
+                                           id="title" 
+                                           name="title" 
+                                           value="<%= event.title %>"
+                                           required 
+                                           class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                           placeholder="Give your event a catchy title">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                                <div class="relative">
+                                    <textarea id="description" 
+                                              name="description" 
+                                              required 
+                                              rows="4"
+                                              class="pl-3 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                              placeholder="Describe your event in detail"><%= event.description %></textarea>
+                                </div>
+                                <p class="mt-1 text-sm text-gray-500">Include key information about what attendees can expect.</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Event Date</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <i class="fas fa-calendar text-gray-400"></i>
+                                        </div>
+                                        <input type="date" 
+                                               id="date" 
+                                               name="date" 
+                                               value="<%= event.date.toISOString().split('T')[0] %>"
+                                               required 
+                                               class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="time" class="block text-sm font-medium text-gray-700 mb-1">Event Time</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <i class="fas fa-clock text-gray-400"></i>
+                                        </div>
+                                        <input type="time" 
+                                               id="time" 
+                                               name="time" 
+                                               value="<%= event.time %>"
+                                               required 
+                                               class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Location and Categories -->
+                    <div class="step hidden" data-step="2">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-map-marker-alt text-gray-400"></i>
+                                    </div>
+                                    <input type="text" 
+                                           id="location" 
+                                           name="location" 
+                                           value="<%= event.location %>"
+                                           required 
+                                           class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                           placeholder="Enter event location">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-tag text-gray-400"></i>
+                                    </div>
+                                    <select id="category" 
+                                            name="category" 
+                                            required 
+                                            class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">Select a category</option>
+                                        <option value="Music" <%= event.category === 'Music' ? 'selected' : '' %>>Music</option>
+                                        <option value="Technology" <%= event.category === 'Technology' ? 'selected' : '' %>>Technology</option>
+                                        <option value="Sports" <%= event.category === 'Sports' ? 'selected' : '' %>>Sports</option>
+                                        <option value="Art" <%= event.category === 'Art' ? 'selected' : '' %>>Art</option>
+                                        <option value="Food" <%= event.category === 'Food' ? 'selected' : '' %>>Food</option>
+                                        <option value="Business" <%= event.category === 'Business' ? 'selected' : '' %>>Business</option>
+                                        <option value="Education" <%= event.category === 'Education' ? 'selected' : '' %>>Education</option>
+                                        <option value="Other" <%= event.category === 'Other' ? 'selected' : '' %>>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="capacity" class="block text-sm font-medium text-gray-700 mb-1">Event Capacity</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-users text-gray-400"></i>
+                                    </div>
+                                    <input type="number" 
+                                           id="capacity" 
+                                           name="capacity" 
+                                           value="<%= event.capacity %>"
+                                           required 
+                                           min="1"
+                                           class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                           placeholder="Maximum number of attendees">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Additional Details -->
+                    <div class="step hidden" data-step="3">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Ticket Price</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-dollar-sign text-gray-400"></i>
+                                    </div>
+                                    <input type="number" 
+                                           id="price" 
+                                           name="price" 
+                                           value="<%= event.price %>"
+                                           required 
+                                           min="0" 
+                                           step="0.01" 
+                                           class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                           placeholder="Enter ticket price (0 for free events)">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Event Image</label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
+                                    <div class="space-y-1 text-center">
+                                        <% if (event.image) { %>
+                                            <img src="<%= event.image %>" alt="Current event image" class="mx-auto h-32 w-auto mb-4">
+                                        <% } %>
+                                        <i class="fas fa-cloud-upload-alt text-gray-400 text-4xl mb-3"></i>
+                                        <div class="flex text-sm text-gray-600">
+                                            <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                                                <span>Upload a new image</span>
+                                                <input id="image" name="image" type="file" accept="image/*" class="sr-only">
+                                            </label>
+                                            <p class="pl-1">or drag and drop</p>
+                                        </div>
+                                        <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between mt-8">
+                        <button type="button" 
+                                id="prevBtn" 
+                                class="hidden px-6 py-2 border border-gray-300 rounded-lg shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Previous
+                        </button>
+                        <button type="button" 
+                                id="nextBtn" 
+                                class="px-6 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Next
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <button type="submit" 
+                                id="submitBtn" 
+                                class="hidden px-6 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            <i class="fas fa-save mr-2"></i>
+                            Update Event
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentStep = 1;
+const totalSteps = 3;
+
+function updateProgressBar() {
+    const progress = (currentStep / totalSteps) * 100;
+    document.querySelector('.progress-bar').style.width = `${progress}%`;
+    document.getElementById('stepIndicator').textContent = `Step ${currentStep} of ${totalSteps}`;
+    
+    // Update step indicators
+    document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+        const stepNum = index + 1;
+        const div = indicator.querySelector('div');
+        if (stepNum < currentStep) {
+            div.classList.remove('bg-gray-200', 'text-gray-500');
+            div.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-purple-600', 'text-white');
+        } else if (stepNum === currentStep) {
+            div.classList.remove('bg-gray-200', 'text-gray-500');
+            div.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-purple-600', 'text-white');
+        } else {
+            div.classList.remove('bg-gradient-to-r', 'from-blue-600', 'to-purple-600', 'text-white');
+            div.classList.add('bg-gray-200', 'text-gray-500');
+        }
+    });
+}
+
+function showStep(step) {
+    document.querySelectorAll('.step').forEach(s => s.classList.add('hidden'));
+    document.querySelector(`.step[data-step="${step}"]`).classList.remove('hidden');
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+
+    prevBtn.classList.toggle('hidden', step === 1);
+    nextBtn.classList.toggle('hidden', step === totalSteps);
+    submitBtn.classList.toggle('hidden', step !== totalSteps);
+
+    updateProgressBar();
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+    if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+    }
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+    }
+});
+
+// File upload preview
+const image = document.getElementById('image');
+image.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.createElement('img');
+            preview.src = e.target.result;
+            preview.classList.add('mx-auto', 'h-32', 'w-auto', 'mb-4');
+            
+            const container = image.closest('div').querySelector('.space-y-1');
+            const existingPreview = container.querySelector('img');
+            if (existingPreview) {
+                existingPreview.remove();
+            }
+            container.insertBefore(preview, container.firstChild);
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+// Initialize the form
+showStep(1);
+</script>
+
+

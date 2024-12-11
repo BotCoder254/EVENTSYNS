@@ -1,0 +1,251 @@
+<!-- Required CDN links -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<div class="relative min-h-screen bg-gradient-to-b from-blue-900 to-purple-900">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80" 
+             alt="Background Pattern"
+             class="w-full h-full object-cover">
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Column -->
+            <div class="text-center lg:text-left">
+                <div class="inline-flex items-center bg-blue-500 text-white rounded-full px-4 py-2 mb-6">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>The Ultimate Event Management Platform</span>
+                </div>
+                <h1 class="text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Create Unforgettable Events
+                </h1>
+                <p class="text-xl text-gray-200 mb-8">
+                    Plan, manage, and host amazing events that bring people together. From conferences to workshops, we've got you covered.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="/auth/register" 
+                       class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-full hover:from-blue-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Get Started Free
+                    </a>
+                    <a href="#features" 
+                       class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white rounded-full hover:bg-white hover:text-blue-600 transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-play mr-2"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column - Hero Animation -->
+            <div class="hidden lg:block">
+                <lottie-player
+                    src="https://lottie.host/58ebb8ac-8e8c-433c-8089-688db1c41bed/MnvqEWTrDo.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 100%; height: 400px;"
+                    loop
+                    autoplay>
+                </lottie-player>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div id="features" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Everything You Need</h2>
+            <p class="text-xl text-gray-600">Powerful features to make your events successful</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 mb-6">
+                    <lottie-player
+                        src="https://lottie.host/2a274be5-8ab4-47b4-b501-0e34c2cd4142/GQNwVDrHhk.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 100%; height: 100%;"
+                        loop
+                        autoplay>
+                    </lottie-player>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Easy Planning</h3>
+                <p class="text-gray-600">Create and manage events with our intuitive tools and templates.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 mb-6">
+                    <lottie-player
+                        src="https://lottie.host/13409c90-f700-4f96-99ac-5c9f2e39c058/nYXx3YRJGq.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 100%; height: 100%;"
+                        loop
+                        autoplay>
+                    </lottie-player>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Smart Analytics</h3>
+                <p class="text-gray-600">Track attendance, engagement, and success metrics in real-time.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 mb-6">
+                    <lottie-player
+                        src="https://lottie.host/58ebb8ac-8e8c-433c-8089-688db1c41bed/MnvqEWTrDo.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 100%; height: 100%;"
+                        loop
+                        autoplay>
+                    </lottie-player>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Seamless Integration</h3>
+                <p class="text-gray-600">Connect with your favorite tools and services effortlessly.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Events Showcase -->
+<div class="py-24 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Popular Events</h2>
+            <p class="text-xl text-gray-600">Discover amazing events happening near you</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% if (popularEvents && popularEvents.length > 0) { %>
+                <% popularEvents.forEach(event => { %>
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300">
+                        <img src="<%= event.image %>" 
+                             alt="<%= event.title %>" 
+                             class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+                                    <%= event.category %>
+                                </span>
+                                <span class="text-gray-500">
+                                    <i class="fas fa-calendar-alt mr-2"></i>
+                                    <%= moment(event.date).format('MMM DD') %>
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2"><%= event.title %></h3>
+                            <p class="text-gray-600 mb-4"><%= event.description.substring(0, 100) %>...</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center text-gray-500 text-sm">
+                                    <i class="fas fa-users mr-2"></i>
+                                    <%= event.attendees.length %> / <%= event.capacity %>
+                                </div>
+                                <div class="flex items-center text-gray-500 text-sm">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>
+                                    <%= event.location %>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-gray-600">
+                                    <% if (event.price > 0) { %>
+                                        KES <%= event.price.toFixed(2) %>
+                                    <% } else { %>
+                                        Free
+                                    <% } %>
+                                </span>
+                                <a href="/events/<%= event._id %>" 
+                                   class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                                    View Details
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="col-span-3 text-center">
+                    <p class="text-gray-500">No events available at the moment.</p>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="/events" 
+               class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-full hover:from-blue-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300">
+                <i class="fas fa-calendar-plus mr-2"></i>
+                View All Events
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="py-24 bg-gradient-to-r from-blue-600 to-purple-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Column -->
+            <div class="text-center lg:text-left">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Create Your Event?</h2>
+                <p class="text-xl text-gray-100 mb-8">
+                    Join thousands of event organizers who trust EventSys to create memorable experiences.
+                </p>
+                <a href="/auth/register" 
+                   class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-600 bg-white rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Get Started Now
+                </a>
+            </div>
+
+            <!-- Right Column - Animation -->
+            <div class="hidden lg:block">
+                <lottie-player
+                    src="https://lottie.host/13409c90-f700-4f96-99ac-5c9f2e39c058/nYXx3YRJGq.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 100%; height: 400px;"
+                    loop
+                    autoplay>
+                </lottie-player>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes float {
+    0% { transform: translate(0px, 0px) scale(1); }
+    50% { transform: translate(20px, -20px) scale(1.05); }
+    100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-float {
+    animation: float 8s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+</style>
+
+<!-- Initialize AOS -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+    });
+</script>

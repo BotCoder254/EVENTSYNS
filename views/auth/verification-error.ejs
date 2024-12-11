@@ -1,0 +1,89 @@
+<div class="min-h-screen flex">
+    <!-- Left Section - Image -->
+    <div class="hidden lg:block lg:w-1/2 relative">
+        <img src="https://images.unsplash.com/photo-1525785967371-87ba44b3e6cf?auto=format&fit=crop&q=80" 
+             alt="Event Background" 
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-purple-600 opacity-90"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-12">
+            <lottie-player
+                src="https://lottie.host/b8d29e35-64ea-40f7-a7f1-8b5894574b8c/HWqpiFfcE4.json"
+                background="transparent"
+                speed="1"
+                style="width: 200px; height: 200px;"
+                loop
+                autoplay>
+            </lottie-player>
+            <h2 class="text-4xl font-bold mb-6">Verification Failed</h2>
+            <p class="text-xl text-center max-w-md">Don't worry! We'll help you get back on track.</p>
+        </div>
+    </div>
+
+    <!-- Right Section - Error Message -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center bg-white p-8">
+        <div class="max-w-md w-full">
+            <div class="text-center">
+                <div class="mb-8">
+                    <lottie-player
+                        src="https://lottie.host/0dfa6d09-7a0d-4d9a-9a98-1f9d42d23a41/89UgHzPjXA.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 120px; height: 120px; margin: 0 auto;"
+                        loop
+                        autoplay>
+                    </lottie-player>
+                </div>
+                
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Verification Error</h1>
+                <p class="text-gray-600 mb-8">
+                    There was an error verifying your account. The verification link may have expired or is invalid.
+                </p>
+
+                <!-- Error Details -->
+                <div class="bg-red-50 rounded-xl p-6 mb-8">
+                    <h3 class="text-sm font-semibold text-red-900 mb-4">Possible Reasons:</h3>
+                    <ul class="space-y-3 text-left">
+                        <li class="flex items-start text-sm text-red-800">
+                            <svg class="h-5 w-5 text-red-500 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                            The verification link has expired (valid for 24 hours)
+                        </li>
+                        <li class="flex items-start text-sm text-red-800">
+                            <svg class="h-5 w-5 text-red-500 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                            The link has already been used
+                        </li>
+                        <li class="flex items-start text-sm text-red-800">
+                            <svg class="h-5 w-5 text-red-500 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                            The verification token is invalid
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-4">
+                    <a href="/auth/register" 
+                       class="block w-full px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Register Again
+                    </a>
+                    <a href="/" 
+                       class="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Return to Home
+                    </a>
+                </div>
+
+                <!-- Support Link -->
+                <p class="mt-8 text-sm text-gray-600">
+                    Need assistance? 
+                    <a href="/contact" class="font-medium text-blue-600 hover:text-blue-500">
+                        Contact our support team
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

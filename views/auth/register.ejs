@@ -1,0 +1,140 @@
+<!-- Register Page -->
+<div class="min-h-screen flex">
+    <!-- Left Section - Image -->
+    <div class="hidden lg:block lg:w-1/2 relative">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80" 
+             alt="Events Background" 
+             class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-90"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white p-8">
+                <h2 class="text-4xl font-bold mb-4">Join Our Community</h2>
+                <p class="text-xl">Create and discover amazing events with like-minded people.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Section - Register Form -->
+    <div class="flex-1 flex items-center justify-center p-8">
+        <div class="max-w-md w-full">
+            <!-- Logo -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
+                    EventSys
+                </h1>
+                <p class="mt-2 text-gray-600">Create your account</p>
+            </div>
+
+            <!-- Register Form -->
+            <form action="/auth/register" method="POST" class="space-y-6">
+                <!-- Username Input -->
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-user text-gray-400"></i>
+                        </div>
+                        <input type="text" 
+                               id="username" 
+                               name="username" 
+                               required 
+                               class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Email Input -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-gray-400"></i>
+                        </div>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               required 
+                               class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Full Name Input -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-id-card text-gray-400"></i>
+                        </div>
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               required 
+                               class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               required 
+                               minlength="6"
+                               class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                    <p class="mt-1 text-sm text-gray-500">Password must be at least 6 characters long</p>
+                </div>
+
+                <!-- Confirm Password Input -->
+                <div>
+                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" 
+                               id="confirmPassword" 
+                               name="confirmPassword" 
+                               required 
+                               minlength="6"
+                               class="pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="flex items-center">
+                    <input type="checkbox" 
+                           id="terms" 
+                           name="terms" 
+                           required 
+                           class="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
+                    <label for="terms" class="ml-2 block text-sm text-gray-700">
+                        I agree to the 
+                        <a href="/terms" class="text-purple-600 hover:text-purple-500">Terms of Service</a>
+                        and
+                        <a href="/privacy" class="text-purple-600 hover:text-purple-500">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" 
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-300">
+                    <i class="fas fa-user-plus mr-2"></i>
+                    Create Account
+                </button>
+            </form>
+
+            <!-- Sign In Link -->
+            <p class="mt-8 text-center text-sm text-gray-600">
+                Already have an account?
+                <a href="/auth/login" class="font-medium text-purple-600 hover:text-purple-500">
+                    Sign in instead
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

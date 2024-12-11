@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventSys<% if (typeof title !== 'undefined') { %> - <%= title %><% } %></title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <style>
+        /* Responsive Grid */
+        @media (max-width: 640px) {
+            .responsive-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        }
+        @media (min-width: 641px) and (max-width: 768px) {
+            .responsive-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (min-width: 769px) {
+            .responsive-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+
+        /* Loading Animation */
+        .loader {
+            border-top-color: #3498db;
+            animation: spinner 1.5s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { transform: translateY(10px); }
+            to { transform: translateY(0); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <%- include('../partials/header') %>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <!-- Flash Messages -->
+        <%- include('../partials/flash-messages') %>
+
+        <!-- Breadcrumbs -->
+        <% if (typeof breadcrumbs !== 'undefined') { %>
+            <%- include('../partials/breadcrumbs', { breadcrumbs }) %>
+        <% } %>
+
+        <!-- Page Content -->
+        <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="fixed inset-0 flex items-center justify-center bg-gray-900 z-50 hidden">
+        <div class="relative">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-16 w-16"></div>
+            <lottie-player
+                src="https://lottie.host/58ebb8ac-8e8c-433c-8089-688db1c41bed/MnvqEWTrDo.json"
+                background="transparent"
+                speed="1"
+                style="width: 120px; height: 120px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+                loop
+                autoplay>
+            </lottie-player>
+        </div>
+    </div>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+    <!-- Loading Spinner Script -->
+    <script>
+        window.addEventListener('load', () => {
+            const spinner = document.getElementById('loading-spinner');
+            spinner.classList.add('hidden');
+        });
+
+        window.addEventListener('beforeunload', () => {
+            const spinner = document.getElementById('loading-spinner');
+            spinner.classList.remove('hidden');
+        });
+    </script>
+</body>
+
+</html>
